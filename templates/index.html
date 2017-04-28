@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Abstract</h1>
+        <p>We divide 120 stocks into 3 groups according to the surprise factor which is the ratio of actual eps over estimated eps. Then we calculate the cummulated  abnormal return of each group and output the graph with cummulated abnormal return.<br>EPS data is from Bloomberg and price data is automatically downloaded from Yahoo.<br><br>We really appreciate open source resourece provided by Yahoo, Twitter, Flask and etc, without which we cannot build up such beautiful web application.</p>
+        <p><a class="btn btn-primary btn-lg" href="/detail" role="button">Details &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Group Miss</h2>
+          <p>If the surprise factor is less than .95 then it misses the expectation. This group contains AMG ,BWA ,ALB ,CAG ,CSRA ,BBY ,WBA ,JNJ ,IT ,ACN ,AMT ,FAST ,SYY ,BSX ,HRS ,FRT ,C ,MET ,K ,KSU ,PG ,JBHT ,MJN ,HCA ,CAH ,TRV ,PH ,PAYX ,QCOM ,DISH ,ISRG ,XRAY ,SNA ,SYF ,CTL ,ZTS ,BIIB ,AMGN ,KMB ,CTAS </p>
+          <p><a class="btn btn-default" href="/group_miss" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Group Meet</h2>
+          <p>If the surprise factor is between .95 and 1.05 then it meets the expectation. This group contains ADI ,PPG ,HSIC ,RAI ,HPE ,RTN ,IDXX ,PRU ,VRSK ,CL ,DRI ,TROW ,CINF ,SBUX ,JNPR ,CNC ,ITW ,GD ,RF ,VAR ,EFX ,AFL ,CCI ,BBT ,EL ,EXPD ,KO ,PFG ,BCR ,BDX ,TMK ,JEC ,COO ,CLX ,CMCSA ,BMY ,TAP ,TEL ,DFS ,TDG </p>
+          <p><a class="btn btn-default" href="/group_meet" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Group Beat</h2>
+          <p>If the surprise factor is greater than 1.05 then it beats the expectation. This group contains CHRW ,EMN ,GE ,USB ,RHI ,MNK ,ILMN ,AMAT ,CBS ,IP ,PSX ,NOC ,TSN ,HSY ,PKI ,EQR ,PCAR ,MAR ,PSA ,SPGI ,NEM ,FIS ,MO ,PEG ,CNP ,MAS ,PM ,UNP ,GPC ,CMI ,MA ,APH ,KEY ,UPS ,CMA ,L ,VIAB ,FLS ,SRCL ,JCI </p>
+          <p><a class="btn btn-default" href="/group_beat" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+        {{wtf.quick_form(form)}}
+        
+      <hr>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+    <h1>{{title}}</h1>
+        <p>{{title}} belongs to {{group}}, the estimated eps is {{est_eps}} and actual eps is {{act_eps}}</p>
+        <center><img src={{fig}}></center>
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">Return &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+    <h1>{{title}}</h1>
+        <p>This is the {{title}} group. <br> It contains {{stock_list}}</p>
+        <p>The average cumulative abnormal return is as follows.</p>
+          <center><img src={{fig}}></center>
+        
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">Return &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+    <h1>Project detail</h1>
+        <p>The project is about the event study of earning announcement.<br></p>
+        
+        <p>
+            1. 120 stocks are selected from SP500 and divided into 3 groups.<br></p>
+            
+            <p>a. 1st group of stocks beat EPS Estimate, such as 5% to 10% above the estimate.<br>
+        
+            b. 2nd group of stocks meet EPS Estimate, such as 5%-10% around the estimate.<br>
+        
+            c. 3rd group of stock miss EPS Estimate, such as 5% to10% below the estimate. <br>
+        </p>
+            <p>2. Define as day zero for a stock the day the earning is released</p>
+        
+            <p>3. retrieve 91 days of historical prices for each stock and SP around the date of earning release.</p>
+        
+            <p>4. For each stock calculate the daily returns Rit for 30 days before the day zero and 60 days after : t = -30, -29...-1, 0, 1,..., 59, 60:</p>
+            <center><p>Rit = (Price(t)-Price(t-1))/ Price(t-1)</p></center> 
+        
+            <p>5. Calculate the corresponding daily return Rmt for SPY for the same days.</p>
+        
+            <p>6. Define abnormal returns as the difference</p> <br><center><p>ARit= Rit-Rmt</p></center>
+        
+            <p>7. Calculate average daily abnormal returns for each group of stocks for all 90 reference days:</p>
+                
+            <center><p>AARt=1/N sum(ARit)</p></center>
+        
+            <p>8.Cumulate the returns on the first T days to CAAR:</p>
+                
+            <center><p>CAAR=sum(ARRt), t = -30,-29...T</p></center>
+        
+            <p>9.Generate the plot for each group.</p>
+        
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">Return &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}
